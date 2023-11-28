@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notifications</title>
+    <link rel="shortcut icon" href="notifications icon.png" type="image/x-icon">
+</head>
+<marquee behavior="scroll" direction="left"><h1>welcome to</h1><p>your mom notifications :)</p>
+    <p><b>allow notifications!</b></p></marquee>
+<body>
+    <script>
+function showNotification() {
+    const notification = new Notification("new message from your mom!", {
+        body:"i see you"
+    });
+}
+
+
+        //defauld, granted, denied
+        console.log(Notification.permission);
+        if(Notification.permission ==="granted") {
+            showNotification();
+        } else if (Notification.permission !=="denied") {
+            Notification.requestPermission().then(permission => {
+                if (permission ==="granted") {
+                showNotification();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
